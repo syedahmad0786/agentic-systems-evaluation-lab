@@ -1,0 +1,10 @@
+flowchart LR
+  U["Reviewer browser"] --> A["FastAPI evaluator"]
+  A --> W["Allowlisted target"]
+  W --> H["Health + capabilities"]
+  W --> R["Replay run twice"]
+  W --> L["Forbidden live probe"]
+  H --> S["Deterministic scorecard"]
+  R --> S
+  L --> S
+  S --> U

@@ -1,0 +1,11 @@
+[project]
+name = "agentic-systems-evaluation-lab"
+version = "1.0.0"
+requires-python = ">=3.12"
+dependencies = ["fastapi==0.116.1", "pydantic==2.11.7", "uvicorn==0.35.0"]
+
+[dependency-groups]
+dev = ["pytest==8.4.1"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
