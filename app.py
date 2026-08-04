@@ -5,7 +5,6 @@ from typing import Literal
 
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse
-from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
 from evaluator import SYSTEMS, evaluate_system
@@ -41,11 +40,18 @@ def run_evaluation(payload: EvaluationRequest):
 
 
 PUBLIC = Path(__file__).with_name("public")
-if PUBLIC.exists():
-    app.mount("/assets", StaticFiles(directory=PUBLIC), name="assets")
 
 
 @app.get("/", include_in_schema=False)
 def index():
     return FileResponse(PUBLIC / "index.html")
 
+
+@app.get("/styles.css", include_in_schema=False)
+def styles():
+    return FileResponse(PUBLIC / "styles.css", media_type="text/css")
+
+
+@app.get("/app.js", include_in_schema=False)
+def script():
+    return FileResponse(PUBLIC / "app.js", media_type="text/javascript")
