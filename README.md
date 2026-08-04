@@ -2,6 +2,8 @@
 
 Reproducible black-box checks for three deployed creator-economy agentic systems. The evaluator verifies API availability, typed run contracts, evidence references, human approval gates, disabled live-provider access, idempotent replay, trace depth, and latency.
 
+**Live:** https://agentic-systems-evaluation-lab.vercel.app
+
 ## Run
 
 ```bash
