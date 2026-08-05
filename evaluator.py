@@ -8,6 +8,7 @@ from dataclasses import dataclass
 from typing import Any, Callable, Literal
 
 SystemName = Literal["campaign-command", "language-mix", "proof-lab"]
+EvaluationScenario = Literal["baseline", "missing-evidence", "approval-bypass", "latency-breach"]
 
 
 @dataclass(frozen=True)
@@ -75,13 +76,22 @@ def _check(name: str, passed: bool, weight: int, evidence: str) -> dict[str, Any
     return {"name": name, "passed": passed, "weight": weight, "earned": weight if passed else 0, "evidence": evidence}
 
 
-def evaluate_system(name: SystemName, fetcher: Fetcher = http_fetch) -> dict[str, Any]:
+def evaluate_system(name: SystemName, fetcher: Fetcher = http_fetch, scenario: EvaluationScenario = "baseline") -> dict[str, Any]:
     contract = SYSTEMS[name]
     health_code, health, health_ms = fetcher("GET", f"{contract.base_url}/api/v1/health", None, None)
     cap_code, capabilities, cap_ms = fetcher("GET", f"{contract.base_url}/api/v1/capabilities", None, None)
     first_code, first, first_ms = fetcher("POST", f"{contract.base_url}{contract.start_path}", contract.payload, {"x-demo-mode": "replay"})
     second_code, second, second_ms = fetcher("POST", f"{contract.base_url}{contract.start_path}", contract.payload, {"x-demo-mode": "replay"})
     live_code, _, live_ms = fetcher("POST", f"{contract.base_url}{contract.start_path}", contract.payload, {"x-demo-mode": "live"})
+
+    first = dict(first)
+    if scenario == "missing-evidence":
+        first["evidence"] = []
+    elif scenario == "approval-bypass":
+        first["status"] = "approved"
+        first["proposal"] = {**(first.get("proposal") or {}), "required_approver": None}
+    elif scenario == "latency-breach":
+        first_ms = 12_500.0
 
     required = {"run_id", "status", "mode", "created_at", "traces", "proposal", "evidence", "usage"}
     checks = [
@@ -102,6 +112,8 @@ def evaluate_system(name: SystemName, fetcher: Fetcher = http_fetch) -> dict[str
         "checks": checks,
         "run_id": first.get("run_id"),
         "mode": first.get("mode"),
+        "evaluation_scenario": scenario,
+        "fault_injected": scenario != "baseline",
         "evaluated_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
         "limitations": [
             "This is black-box replay evaluation, not client production acceptance.",

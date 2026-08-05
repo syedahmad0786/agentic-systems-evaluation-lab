@@ -1,0 +1,19 @@
+flowchart TB
+  CI["Unit tests in GitHub Actions"] --> V["Vercel preview"]
+  V --> E["Live black box evaluation"]
+  E --> M{"Seven checks pass?"}
+  M -->|yes| P["Promote exact artifact"]
+  M -->|no| B["Block release"]
+  U["Evaluation request"] --> T["Trace ID middleware"]
+  T --> A["Evaluator function"]
+  A --> D["Per probe latency and evidence"]
+  A --> J["Structured JSON logs"]
+  D --> U
+  J --> L["Vercel runtime logs"]
+  F["Simulated fault selector"] --> A
+  classDef delivery fill:#F4EEE3,stroke:#11100E,color:#11100E
+  classDef observe fill:#C8FF37,stroke:#11100E,color:#11100E
+  classDef gate fill:#502C52,stroke:#502C52,color:#F4EEE3
+  class CI,V,E,P,B delivery
+  class U,T,A,D,J,L,F observe
+  class M gate

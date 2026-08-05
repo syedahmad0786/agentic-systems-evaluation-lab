@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-labelledby="title desc">
+  <title id="title">AiXCEL Solutions node mark</title>
+  <desc id="desc">A lime center connected to five outlined nodes.</desc>
+  <g fill="none" stroke="#502C52" stroke-width="1.25">
+    <path d="M19 20L41 20"/>
+    <path d="M19 20L25.8 40.9"/>
+    <path d="M19 20L1.2 32.9"/>
+    <path d="M19 20L1.2 7.1"/>
+    <path d="M19 20L25.8 -.9"/>
+    <circle cx="41" cy="20" r="3.8" fill="#F4F0E8"/>
+    <circle cx="25.8" cy="40.9" r="3.8" fill="#F4F0E8"/>
+    <circle cx="1.2" cy="32.9" r="3.8" fill="#F4F0E8"/>
+    <circle cx="1.2" cy="7.1" r="3.8" fill="#F4F0E8"/>
+    <circle cx="25.8" cy="-.9" r="3.8" fill="#F4F0E8"/>
+    <circle cx="19" cy="20" r="6" fill="#C8FF2E"/>
+  </g>
+</svg>

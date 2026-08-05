@@ -1,0 +1,20 @@
+flowchart TB
+  T["Target selection"] --> H["Health and capabilities"]
+  T --> R1["Replay run 1"]
+  T --> R2["Replay run 2"]
+  T --> X["Forbidden live probe"]
+  H --> C["Contract checks"]
+  R1 --> C
+  R2 --> I["Idempotency check"]
+  X --> B["Boundary check"]
+  C --> S["Weighted scorecard"]
+  I --> S
+  B --> S
+  F["Optional explicit fault scenario"] --> S
+  S --> O["Grade and evidence"]
+  classDef probe fill:#E9E1D2,stroke:#11100E,color:#11100E
+  classDef check fill:#C8FF37,stroke:#11100E,color:#11100E
+  classDef fault fill:#C95F37,stroke:#11100E,color:#F4EEE3
+  class T,H,R1,R2,X probe
+  class C,I,B,S,O check
+  class F fault
