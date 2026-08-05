@@ -1,0 +1,10 @@
+.venv
+__pycache__
+.pytest_cache
+.git
+docs
+tests
+postman
+qa-artifacts
+*.md
+public/assets/diagrams/*.png

@@ -1,4 +1,10 @@
+from fastapi.testclient import TestClient
+
+from app import app
 from evaluator import evaluate_system
+
+
+client = TestClient(app)
 
 
 def fake_fetch(method, url, payload=None, headers=None):
@@ -26,6 +32,11 @@ def test_perfect_contract_scores_100():
     assert all(check["passed"] for check in result["checks"])
 
 
+def test_http_response_has_trace_header():
+    response = client.get("/api/v1/health")
+    assert response.headers["X-Trace-ID"]
+
+
 def test_missing_evidence_fails_evidence_check():
     def no_evidence(method, url, payload=None, headers=None):
         code, body, latency = fake_fetch(method, url, payload, headers)
@@ -36,4 +47,15 @@ def test_missing_evidence_fails_evidence_check():
     result = evaluate_system("campaign-command", no_evidence)
     assert result["score"] == 80
     assert next(c for c in result["checks"] if c["name"] == "Resolvable evidence")["passed"] is False
+
+
+def test_fault_injection_proves_the_evaluator_catches_regressions():
+    evidence_failure = evaluate_system("campaign-command", fake_fetch, "missing-evidence")
+    approval_failure = evaluate_system("campaign-command", fake_fetch, "approval-bypass")
+    latency_failure = evaluate_system("campaign-command", fake_fetch, "latency-breach")
+
+    assert evidence_failure["score"] == 80
+    assert approval_failure["score"] == 80
+    assert latency_failure["score"] == 90
+    assert all(result["fault_injected"] for result in (evidence_failure, approval_failure, latency_failure))
 

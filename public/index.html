@@ -9,8 +9,9 @@
 </head>
 <body>
   <main>
+    <nav class="topline"><a class="dual-brand" href="/" aria-label="Ahmad Bukhari and AiXCEL Solutions"><span class="brand-unit"><img src="/assets/ahmad-ab-axis.svg" alt=""><b>Ahmad Bukhari</b><small>Agentic AI &amp; LLM Systems Specialist</small></span><span class="brand-divider"></span><span class="brand-unit aixcel"><img src="/assets/aixcel-node-mark.svg" alt=""><b>AiXCEL Solutions</b><small>Agent quality systems</small></span></a><span class="mode">LIVE BLACK-BOX LAB</span></nav>
     <header>
-      <p class="eyebrow">AiXCEL Systems Lab</p>
+      <p class="eyebrow">Independent release evidence</p>
       <h1>Agentic systems,<br><em>tested as systems.</em></h1>
       <p class="lede">Run reproducible black-box checks for contracts, evidence, approval gates, live boundaries, idempotency, and latency.</p>
     </header>
@@ -27,21 +28,62 @@
           <option value="language-mix">LanguageMix Studio</option>
           <option value="proof-lab">Creator Campaign Proof Lab</option>
         </select>
+        <label for="scenario">Evaluation scenario</label>
+        <select id="scenario" name="scenario">
+          <option value="baseline">Baseline</option>
+          <option value="missing-evidence">Inject missing evidence</option>
+          <option value="approval-bypass">Inject approval bypass</option>
+          <option value="latency-breach">Inject latency breach</option>
+        </select>
         <button type="submit">Run evaluation <span aria-hidden="true">→</span></button>
       </form>
       <p id="status" class="status" role="status">Ready. The lab calls only the three allowlisted public deployments.</p>
     </section>
 
     <section id="result" class="result" hidden aria-live="polite">
-      <div class="score-block"><span id="score">—</span><small>/ 100</small></div>
+      <div class="score-block"><span id="score"> - </span><small>/ 100</small></div>
       <div>
         <p class="index">02 / RESULT</p>
-        <h2 id="grade">—</h2>
+        <h2 id="grade"> - </h2>
         <div id="checks" class="checks"></div>
       </div>
     </section>
 
-    <footer>Black-box replay evidence ≠ production acceptance. Real-data privacy, provider quality, and mutations require authenticated tests.</footer>
+    <section class="case-study" id="case-study">
+      <div class="case-kicker"><span>Technical case study 04</span><b>Published by Ahmad Bukhari. Built and verified by AiXCEL Solutions.</b></div>
+      <div class="case-lead"><div><p class="index">03 / SCENARIO BRIEF</p><h2>A live evaluator that proves it can fail.</h2></div><p>Agent demos often validate only the happy path. This lab calls three allowlisted public systems, verifies seven contract and governance controls, repeats requests for idempotency, probes forbidden live mode, measures latency, and exposes evidence for every score.</p></div>
+      <div class="proof-strip"><article><strong>03</strong><span>allowlisted deployments</span></article><article><strong>07</strong><span>weighted checks</span></article><article><strong>04</strong><span>baseline and fault scenarios</span></article><article><strong>00</strong><span>user-supplied outbound URLs</span></article></div>
+      <div class="bench-story">
+        <article><span>Control failure</span><h3>A permanent score of 100 proves nothing.</h3><p>The original interface only showed a passing baseline. Missing evidence, approval bypass, and latency breach can now be injected explicitly and each lowers the score.</p></article>
+        <article><span>Security boundary</span><h3>The evaluator cannot fetch arbitrary URLs.</h3><p>Target names resolve through a code allowlist. This prevents the public service from becoming a server-side request-forgery tool.</p></article>
+        <article><span>Acceptance boundary</span><h3>Public checks are not production certification.</h3><p>Privacy, provider quality, semantic task success, and real-data mutations require authenticated project-specific evaluation.</p></article>
+      </div>
+      <div class="architecture">
+        <div class="section-head"><p class="index">04 / ARCHITECTURE</p><h2>Probe, compare, score, and gate.</h2></div>
+        <figure><img src="/assets/diagrams/system-context.svg" alt="Evaluation Lab system context"><figcaption><b>System context</b><span>The evaluator only reaches three fixed portfolio deployments.</span></figcaption></figure>
+        <figure><img src="/assets/diagrams/agent-collaboration.svg" alt="Evaluation Lab check flow"><figcaption><b>Evaluation flow</b><span>Health, two replay runs, live boundary, weighted controls, and optional fault.</span></figcaption></figure>
+        <figure><img src="/assets/diagrams/runtime-observability.svg" alt="Evaluation Lab runtime and observability"><figcaption><b>Release gate</b><span>CI, preview, live black-box checks, trace evidence, and artifact promotion.</span></figcaption></figure>
+      </div>
+      <div class="decision-block">
+        <div><p class="index">05 / DECISIONS</p><h2>Binary controls stay deterministic.</h2></div>
+        <div class="decision-list">
+          <article><b>Black-box HTTP over unit tests alone</b><p>The public URL, headers, latency, and boundary behavior must work outside the repository.</p></article>
+          <article><b>Rules over LLM-as-judge</b><p>An approval bypass or missing evidence has one repeatable result. A model judge is reserved for calibrated qualitative output.</p></article>
+          <article><b>Hard allowlist over submitted URLs</b><p>The public evaluator has no reason to fetch arbitrary hosts.</p></article>
+          <article><b>Two replay calls over one</b><p>Idempotency is observable only when the same key is used more than once.</p></article>
+          <article><b>Standard library HTTP over another dependency</b><p>The bounded request surface is small enough for the platform runtime.</p></article>
+          <article><b>Vercel over queues and Kubernetes</b><p>Current checks finish synchronously. Scheduled suites and long model graders are the trigger for a queue.</p></article>
+        </div>
+      </div>
+      <div class="ops-grid">
+        <article><p class="index">06 / EVALUATION</p><h3>Seven weighted checks</h3><ul><li>Availability</li><li>Typed run contract</li><li>Resolvable evidence</li><li>Human decision gate</li><li>Live-provider boundary</li><li>Idempotent replay</li><li>Bounded trace and latency</li></ul></article>
+        <article><p class="index">07 / OBSERVABILITY</p><h3>Current monitoring path</h3><ul><li>X-Trace-ID and JSON logs</li><li>Per-probe latency and evidence</li><li>Vercel runtime logs</li><li>GitHub Actions regression tests</li><li>Score, grade, and fault label in the response</li></ul></article>
+        <article><p class="index">08 / NEXT GATE</p><h3>Production evaluation layer</h3><ul><li>Durable run history and schedules</li><li>OpenTelemetry trace correlation</li><li>Langfuse or LangSmith qualitative suites</li><li>Sentry application errors</li><li>Human-labelled golden sets and drift alerts</li></ul></article>
+      </div>
+      <div class="trace-tags"><b>Trace tags</b><code>service</code><code>environment</code><code>trace_id</code><code>target_system</code><code>evaluation_scenario</code><code>check</code><code>status</code><code>latency_ms</code><code>score</code><code>fault_injected</code><code>error_type</code></div>
+      <div class="case-actions"><a href="https://github.com/syedahmad0786/agentic-systems-evaluation-lab">Inspect repository ↗</a><a href="/docs">Open API contracts ↗</a></div>
+    </section>
+    <footer>Published by Ahmad Bukhari. Built and verified by AiXCEL Solutions. Public black-box evidence is not production acceptance.</footer>
   </main>
   <script src="/app.js" defer></script>
 </body>

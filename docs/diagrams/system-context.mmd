@@ -1,0 +1,18 @@
+flowchart LR
+  R["Reviewer"] --> U["Evaluation Lab UI"]
+  U --> A["FastAPI evaluator"]
+  A --> W{"Allowlisted target only"}
+  W --> C["Campaign Command"]
+  W --> L["LanguageMix"]
+  W --> P["Proof Lab"]
+  C --> S["Weighted scorecard"]
+  L --> S
+  P --> S
+  S --> R
+  A --> J["Trace ID and JSON logs"]
+  classDef user fill:#C8FF37,stroke:#11100E,color:#11100E
+  classDef lab fill:#F4EEE3,stroke:#11100E,color:#11100E
+  classDef target fill:#502C52,stroke:#502C52,color:#F4EEE3
+  class R user
+  class U,A,S,J lab
+  class W,C,L,P target

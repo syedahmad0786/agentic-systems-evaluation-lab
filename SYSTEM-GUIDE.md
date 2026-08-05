@@ -31,7 +31,7 @@ Agent demos often prove only that text appeared. This lab tests the more importa
 | Idempotent replay | 10 |
 | Trace and latency bounds | 10 |
 
-90–100 is `production-shaped`, 70–89 is `needs-work`, and below 70 is `not-ready`. The grade is deliberately not called production-ready.
+90-100 is `production-shaped`, 70-89 is `needs-work`, and below 70 is `not-ready`. The grade is deliberately not called production-ready.
 
 ## Security and limitations
 
