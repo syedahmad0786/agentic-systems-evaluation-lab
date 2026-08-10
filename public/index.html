@@ -3,13 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f3f0e9">
+  <script>(()=>{const k="aixcel-color-theme";let t=null;try{t=localStorage.getItem(k)}catch{}if(t!=="light"&&t!=="dark")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.dataset.theme=t;document.documentElement.style.colorScheme=t})()</script>
   <meta name="description" content="Evidence-led black-box evaluation for agentic systems.">
   <title>Agentic Systems Evaluation Lab</title>
   <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/theme.css">
 </head>
 <body>
   <main>
-    <nav class="topline"><a class="dual-brand" href="/" aria-label="Ahmad Bukhari and AiXCEL Solutions"><span class="brand-unit"><img src="/assets/ahmad-ab-axis.svg" alt=""><b>Ahmad Bukhari</b><small>Agentic AI &amp; LLM Systems Specialist</small></span><span class="brand-divider"></span><span class="brand-unit aixcel"><img src="/assets/aixcel-node-mark.svg" alt=""><b>AiXCEL Solutions</b><small>Agent quality systems</small></span></a><span class="mode">LIVE BLACK-BOX LAB</span></nav>
+    <nav class="topline"><a class="dual-brand" href="/" aria-label="Ahmad Bukhari and AiXCEL Solutions"><span class="brand-unit"><img src="/assets/ahmad-ab-axis.svg" alt=""><b>Ahmad Bukhari</b><small>Agentic AI &amp; LLM Systems Specialist</small></span><span class="brand-divider"></span><span class="brand-unit aixcel"><img src="/assets/aixcel-node-mark.svg" alt=""><b>AiXCEL Solutions</b><small>Agent quality systems</small></span></a><div class="topline-tools"><span class="mode">LIVE BLACK-BOX LAB</span><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch color theme"><span class="theme-icon theme-icon-sun" aria-hidden="true">☼</span><span class="theme-icon theme-icon-moon" aria-hidden="true">☾</span></button></div></nav>
     <header>
       <p class="eyebrow">Independent release evidence</p>
       <h1>Agentic systems,<br><em>tested as systems.</em></h1>
@@ -85,6 +88,7 @@
     </section>
     <footer>Published by Ahmad Bukhari. Built and verified by AiXCEL Solutions. Public black-box evidence is not production acceptance.</footer>
   </main>
+  <script src="/theme.js" defer></script>
   <script src="/app.js" defer></script>
 </body>
 </html>
