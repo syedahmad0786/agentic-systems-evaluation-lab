@@ -29,3 +29,7 @@ See [SYSTEM-GUIDE.md](SYSTEM-GUIDE.md) and [docs/architecture.mmd](docs/architec
 - [Runtime and observability](docs/diagrams/runtime-observability.svg)
 
 Every architecture visual is committed as Mermaid source, editable Excalidraw, SVG, and PNG. The live page labels synthetic, replay, statistical, and human-gated behavior explicitly.
+
+## Theme system
+
+The product surface follows the visitor's operating-system preference on first load and provides a keyboard-accessible light and dark theme switch. The selected theme is stored only in local browser storage, updates the browser theme color, and persists after reload. Both themes are checked at 1440 pixels and 390 pixels for visibility, overflow, browser errors, and page errors.

@@ -1,0 +1,115 @@
+:root {
+  --theme-browser: #f3f0e9;
+  --theme-control-bg: #ffffff;
+  --theme-control-fg: #111318;
+  --theme-control-line: #c9c3b8;
+  --theme-focus: #587400;
+}
+
+html[data-theme="dark"] {
+  --ink: #f4f6f1;
+  --paper: #0c0f11;
+  --line: #343a3d;
+  --lime: #c7f755;
+  --muted: #a7adaa;
+  --theme-browser: #0c0f11;
+  --theme-control-bg: #151a1c;
+  --theme-control-fg: #f4f6f1;
+  --theme-control-line: #3a4245;
+  --theme-focus: #c7f755;
+}
+
+.topline-tools,
+.nav-tools,
+.header-tools {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.theme-toggle {
+  width: 40px !important;
+  height: 40px;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: inline-grid !important;
+  place-items: center;
+  flex: 0 0 auto;
+  border: 1px solid var(--theme-control-line) !important;
+  border-radius: 50% !important;
+  background: var(--theme-control-bg) !important;
+  color: var(--theme-control-fg) !important;
+  cursor: pointer;
+}
+
+.theme-toggle:hover {
+  border-color: var(--theme-control-fg) !important;
+  background: var(--theme-control-bg) !important;
+}
+
+.theme-toggle:focus-visible {
+  outline: 3px solid var(--theme-focus);
+  outline-offset: 3px;
+}
+
+.theme-icon {
+  font: 700 19px/1 Georgia, serif;
+}
+
+html[data-theme="light"] .theme-icon-moon,
+html[data-theme="dark"] .theme-icon-sun {
+  display: none;
+}
+
+.brand-unit:not(.aixcel) img {
+  padding: 4px;
+  background: #111318;
+}
+
+html[data-theme="dark"] select {
+  color: var(--ink);
+  background: #14191b;
+}
+
+html[data-theme="dark"] form button,
+html[data-theme="dark"] .case-kicker b {
+  color: #111318;
+  background: var(--lime);
+}
+
+html[data-theme="dark"] .score-block,
+html[data-theme="dark"] .decision-list b {
+  color: #111318;
+}
+
+html[data-theme="dark"] .proof-strip {
+  color: var(--ink);
+  background: #151a1c;
+}
+
+html[data-theme="dark"] .ops-grid article {
+  background: #151a1c;
+}
+
+html[data-theme="dark"] .trace-tags code {
+  background: #1d2426;
+}
+
+html[data-theme="dark"] .pass {
+  color: #79d887;
+}
+
+html[data-theme="dark"] .fail {
+  color: #ff8d81;
+}
+
+@media (max-width: 700px) {
+  .mode {
+    display: none;
+  }
+
+  .theme-toggle {
+    width: 36px !important;
+    height: 36px;
+  }
+}
