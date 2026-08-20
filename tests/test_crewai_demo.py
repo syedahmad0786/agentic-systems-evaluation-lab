@@ -76,7 +76,8 @@ def test_classic_amp_crew_uses_credential_free_teaching_model():
     assert {agent.llm.model for agent in deployed_crew.agents} == {
         "teaching/deterministic-v1"
     }
-    assert deployed_crew.tasks[-1].human_input is True
+    assert deployed_crew.tasks[-1].human_input is False
+    assert all(agent.tools == [] for agent in deployed_crew.agents)
 
 
 def test_teaching_model_returns_bounded_artifacts_without_provider_credentials():

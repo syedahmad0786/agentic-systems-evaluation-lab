@@ -131,7 +131,7 @@ class TeachingLLM(BaseLLM):
 1. **Signal** — A named topic, audience, channel, policy, and bounded source packet enter the crew.
 2. **Specialist role** — The Evidence Scout classifies claims; the Systems Mapper explains the operating design; the Field Note Editor separates channel voices; the Claims Gate audits release readiness.
 3. **Handoff** — Each completed task becomes explicit context for the next task in the sequential process.
-4. **Control gate** — Unsupported claims remain labelled, publishing tools remain disconnected, and the final task requests human input.
+4. **Control gate** — Unsupported claims remain labelled, publishing tools remain disconnected, and the final task returns a named human-review state.
 5. **Action** — The crew may prepare a claim ledger, systems map, draft pack, and release review. It cannot publish.
 6. **Evidence receipt** — AMP records the execution timeline and traces; the final output records `READY_FOR_HUMAN_REVIEW` or `REVISE`.
 
@@ -161,7 +161,7 @@ The fourth agent is a claims gate. It checks the draft against the original ledg
 
 That separation matters because “multi-agent” can otherwise become a diagram that hides one long prompt. In this trial, each task has a named owner and each handoff carries the earlier output as context. CrewAI AMP then holds the execution history and trace.
 
-There is also a deliberate limit: the live trial uses a deterministic teaching model. It proves the orchestration path can run and pause for human input; it does not prove provider quality, factual breadth, or production acceptance.
+There is also a deliberate limit: the live trial uses a deterministic teaching model. It proves the orchestration path can run and end at a human-review boundary; it does not prove provider quality, factual breadth, or production acceptance.
 
 For me, that is the useful starting point: make the decision path inspectable before making the system more capable.
 
@@ -171,7 +171,7 @@ Where would you place the first non-negotiable human gate in your workflow?
 
 Multi-agent architecture is most useful when responsibility is inspectable.
 
-This CrewAI teaching trial separates an editorial workflow into four controlled stages: evidence classification, systems mapping, channel-specific drafting, and claim review. Prior outputs are passed forward as explicit task context, while the final task stops for named human input.
+This CrewAI teaching trial separates an editorial workflow into four controlled stages: evidence classification, systems mapping, channel-specific drafting, and claim review. Prior outputs are passed forward as explicit task context, while the final task returns a named human-review state.
 
 The crew has no publishing integration. Its current deterministic teaching model is designed to prove orchestration and governance behavior—not model quality or production readiness. AMP provides the live execution record and traces.
 
@@ -211,4 +211,4 @@ None for this bounded teaching packet. Re-run the evidence gate if the source pa
 
 ## HUMAN DECISION REQUIRED
 
-The crew is stopping here. Ahmad Bukhari must review, revise, approve, and publish outside this automation. No social account or publishing tool is connected."""
+The automation ends here. Ahmad Bukhari must review, revise, approve, and publish outside this automation. No social account or publishing tool is connected."""

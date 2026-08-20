@@ -44,4 +44,6 @@ review_release_packet:
     and a final HUMAN DECISION REQUIRED notice.
   agent: claims_gate
   markdown: true
-  human_input: true
+  # AMP's kickoff API has no interactive terminal. The deployed release gate is
+  # the explicit review state plus the deliberate absence of publishing tools.
+  human_input: false

@@ -6,7 +6,7 @@ Reproducible black-box checks for three deployed creator-economy agentic systems
 
 The live page now includes a CrewAI teaching trial for an agentic-systems content workflow. Its four-stage handoff rail is a labelled browser replay; the deployable JSON-first CrewAI source lives under [`crewai/agentic-systems-editorial-crew/`](crewai/agentic-systems-editorial-crew/).
 
-The linked AMP automation still validates the Git repository root with CrewAI's classic scaffold rules, so its deployable compatibility package lives under [`src/agentic_systems_evaluation_lab/`](src/agentic_systems_evaluation_lab/). It uses a deterministic, credential-free teaching model to prove the four roles, sequential handoffs, AMP traces, and final human-input gate. The JSON-first folder remains the clearer architecture source and shows the provider-backed model upgrade path.
+The linked AMP automation still validates the Git repository root with CrewAI's classic scaffold rules, so its deployable compatibility package lives under [`src/agentic_systems_evaluation_lab/`](src/agentic_systems_evaluation_lab/). It uses a deterministic, credential-free teaching model to prove the four roles, sequential handoffs, AMP traces, and final human-review boundary. The hosted API ends with `READY_FOR_HUMAN_REVIEW` and exposes no publishing tool. The JSON-first folder remains the clearer architecture source and shows the interactive human-input and provider-backed model upgrade path.
 
 ## Run
 
