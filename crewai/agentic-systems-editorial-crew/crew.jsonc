@@ -1,0 +1,54 @@
+{
+  "name": "Agentic Systems Editorial Crew",
+  "agents": [
+    "evidence_scout",
+    "systems_mapper",
+    "field_note_editor",
+    "claims_gate"
+  ],
+  "tasks": [
+    {
+      "name": "build_evidence_ledger",
+      "description": "Read the supplied source packet for the topic '{topic}'. Extract only claims that are explicitly supported by that packet. Label each item SUPPORTED, INFERENCE, or OPEN. Record the exact source wording beside every SUPPORTED claim. Do not browse, invent citations, or turn an inference into a fact. Audience: {audience}. Source packet: {source_packet}",
+      "expected_output": "A compact Markdown claim ledger with sections for SUPPORTED, INFERENCE, and OPEN claims, plus a one-sentence evidence boundary.",
+      "agent": "evidence_scout",
+      "markdown": true
+    },
+    {
+      "name": "map_the_system",
+      "description": "Using the evidence ledger, explain the agentic system as an operating sequence: signal, specialist role, handoff, control gate, action, and evidence receipt. Make the difference between an agent, a task, a crew, and a human gate concrete for a non-technical operator. Preserve every uncertainty label.",
+      "expected_output": "A six-part systems map and a plain-English explanation of why multiple narrow agents are used instead of one generic assistant.",
+      "agent": "systems_mapper",
+      "markdown": true,
+      "context": ["build_evidence_ledger"]
+    },
+    {
+      "name": "draft_content_pack",
+      "description": "Turn the approved evidence ledger and systems map into a draft content pack for {channel}. Write three hook options, recommend one, then produce: (1) a 220-300 word personal LinkedIn Field Note in Ahmad Bukhari's evidence-led operator voice, (2) a distinct 100-150 word AiXCEL company adaptation focused on implementation, (3) one visual brief, and (4) one closing question. Never claim publication, customer outcomes, revenue, production acceptance, or autonomous action unless the source packet explicitly supports it.",
+      "expected_output": "A channel-separated Markdown content pack with three hooks, one recommended hook, personal draft, company adaptation, visual brief, and closing question.",
+      "agent": "field_note_editor",
+      "markdown": true,
+      "context": ["build_evidence_ledger", "map_the_system"]
+    },
+    {
+      "name": "review_release_packet",
+      "description": "Audit the content pack line by line against the evidence ledger. List every factual claim and its support status. Check that Ahmad's personal voice and AiXCEL's company voice remain distinct. Return exactly one release state: READY_FOR_HUMAN_REVIEW or REVISE. Even when ready, do not publish, schedule, send, or imply approval. The governing policy is: {human_review_policy}",
+      "expected_output": "A release review containing the release state, claim audit, channel-separation check, required edits, and a final HUMAN DECISION REQUIRED notice.",
+      "agent": "claims_gate",
+      "markdown": true,
+      "human_input": true,
+      "context": ["build_evidence_ledger", "map_the_system", "draft_content_pack"]
+    }
+  ],
+  "process": "sequential",
+  "verbose": true,
+  "memory": false,
+  "tracing": true,
+  "inputs": {
+    "topic": "Why agentic systems need evidence gates before they act",
+    "audience": "Founders and operations leaders evaluating practical AI systems",
+    "channel": "Ahmad Bukhari personal LinkedIn, with a separate AiXCEL company adaptation",
+    "source_packet": "CrewAI organizes specialized agents inside a crew. Tasks give each agent a clear assignment and may pass prior task outputs as context. A sequential process runs tasks in order. CrewAI AMP provides deployment, execution history, metrics, and traces. This demo keeps publishing outside the crew: the final task prepares a release review and pauses for a named human decision.",
+    "human_review_policy": "Draft and review only. Ahmad Bukhari owns the final publish decision. No social account or publishing tool is connected in this trial."
+  }
+}

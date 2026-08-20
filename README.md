@@ -4,6 +4,8 @@ Reproducible black-box checks for three deployed creator-economy agentic systems
 
 **Live:** https://agentic-systems-evaluation-lab.vercel.app
 
+The live page now includes a CrewAI teaching trial for an agentic-systems content workflow. Its four-stage handoff rail is a labelled browser replay; the deployable JSON-first CrewAI source lives under [`crewai/agentic-systems-editorial-crew/`](crewai/agentic-systems-editorial-crew/).
+
 ## Run
 
 ```bash
@@ -17,6 +19,8 @@ Open `http://127.0.0.1:8000`. API source of truth: `/openapi.json`.
 ## Truth boundary
 
 This proves public replay behavior only. It does not claim real client data, production acceptance, provider quality, or authenticated mutation safety. Those require private integration tests and named human approval.
+
+The CrewAI trial drafts and reviews content but has no publishing tool. CrewAI AMP is the authority for live deployment and execution traces; the public handoff animation exists only to explain the architecture.
 
 See [SYSTEM-GUIDE.md](SYSTEM-GUIDE.md) and [docs/architecture.mmd](docs/architecture.mmd).
 ## Technical proof package

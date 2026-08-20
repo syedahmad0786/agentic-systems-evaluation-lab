@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f3f0e9">
   <script>(()=>{const k="aixcel-color-theme";let t=null;try{t=localStorage.getItem(k)}catch{}if(t!=="light"&&t!=="dark")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.dataset.theme=t;document.documentElement.style.colorScheme=t})()</script>
-  <meta name="description" content="Evidence-led black-box evaluation for agentic systems.">
+  <meta name="description" content="Evidence-led black-box evaluation and a live CrewAI multi-agent publishing trial.">
   <title>Agentic Systems Evaluation Lab</title>
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="/theme.css">
 </head>
 <body>
   <main>
-    <nav class="topline"><a class="dual-brand" href="/" aria-label="Ahmad Bukhari and AiXCEL Solutions"><span class="brand-unit"><img src="/assets/ahmad-ab-axis.svg" alt=""><b>Ahmad Bukhari</b><small>Agentic AI &amp; LLM Systems Specialist</small></span><span class="brand-divider"></span><span class="brand-unit aixcel"><img src="/assets/aixcel-node-mark.svg" alt=""><b>AiXCEL Solutions</b><small>Agent quality systems</small></span></a><div class="topline-tools"><span class="mode">LIVE BLACK-BOX LAB</span><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch color theme"><span class="theme-icon theme-icon-sun" aria-hidden="true">☼</span><span class="theme-icon theme-icon-moon" aria-hidden="true">☾</span></button></div></nav>
+    <nav class="topline"><a class="dual-brand" href="/" aria-label="Ahmad Bukhari and AiXCEL Solutions"><span class="brand-unit"><img src="/assets/ahmad-ab-axis.svg" alt=""><b>Ahmad Bukhari</b><small>Agentic AI &amp; LLM Systems Specialist</small></span><span class="brand-divider"></span><span class="brand-unit aixcel"><img src="/assets/aixcel-node-mark.svg" alt=""><b>AiXCEL Solutions</b><small>Agent quality systems</small></span></a><div class="topline-tools"><a class="mode" href="#crewai-demo">CREWAI TRIAL</a><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch color theme"><span class="theme-icon theme-icon-sun" aria-hidden="true">☼</span><span class="theme-icon theme-icon-moon" aria-hidden="true">☾</span></button></div></nav>
     <header>
       <p class="eyebrow">Independent release evidence</p>
       <h1>Agentic systems,<br><em>tested as systems.</em></h1>
@@ -52,9 +52,101 @@
       </div>
     </section>
 
+    <section class="crew-lab" id="crewai-demo" aria-labelledby="crew-title">
+      <div class="crew-lab-head">
+        <div>
+          <p class="index">03 / CREWAI TEACHING TRIAL</p>
+          <h2 id="crew-title">One brief.<br>Four accountable agents.</h2>
+        </div>
+        <div class="crew-intro">
+          <span class="replay-label"><i aria-hidden="true"></i> Visual replay</span>
+          <p>This teaching view mirrors the JSON-first crew deployed in CrewAI AMP. The public animation explains the handoffs; AMP holds the live run, timeline, and traces.</p>
+        </div>
+      </div>
+
+      <div class="crew-workbench">
+        <aside class="crew-brief" aria-label="Crew input brief">
+          <p class="console-label">Input / topic</p>
+          <h3>Why agentic systems need evidence gates before they act</h3>
+          <dl>
+            <div><dt>Audience</dt><dd>Founders + operations leaders</dd></div>
+            <div><dt>Outputs</dt><dd>Personal Field Note + AiXCEL adaptation</dd></div>
+            <div><dt>Process</dt><dd>Sequential with task context</dd></div>
+            <div><dt>Boundary</dt><dd>Draft only. No publishing tool.</dd></div>
+          </dl>
+          <button class="crew-run" id="crew-run" type="button"><span>Run teaching trace</span><span aria-hidden="true">▶</span></button>
+          <a class="amp-link" href="https://app.crewai.com" target="_blank" rel="noreferrer">Open live CrewAI AMP <span aria-hidden="true">↗</span></a>
+        </aside>
+
+        <div class="crew-stage" aria-live="polite">
+          <div class="stage-heading">
+            <div><span>CREW</span><b>Agentic Systems Editorial Crew</b></div>
+            <p id="crew-status">Ready to show the handoff.</p>
+          </div>
+          <div class="crew-rail" role="list" aria-label="Sequential CrewAI agents">
+            <article class="crew-agent" data-crew-step="0" role="listitem">
+              <div class="agent-code"><span>AGENT 01</span><b>build_evidence_ledger</b></div>
+              <span class="agent-orbit" aria-hidden="true"><b>E</b></span>
+              <h3>Evidence Scout</h3>
+              <p>Separates supported facts, inference, and open questions.</p>
+              <small>INPUT · source packet</small>
+            </article>
+            <article class="crew-agent" data-crew-step="1" role="listitem">
+              <div class="agent-code"><span>AGENT 02</span><b>map_the_system</b></div>
+              <span class="agent-orbit" aria-hidden="true"><b>S</b></span>
+              <h3>Systems Mapper</h3>
+              <p>Turns evidence into roles, handoffs, gates, and receipts.</p>
+              <small>CONTEXT · evidence ledger</small>
+            </article>
+            <article class="crew-agent" data-crew-step="2" role="listitem">
+              <div class="agent-code"><span>AGENT 03</span><b>draft_content_pack</b></div>
+              <span class="agent-orbit" aria-hidden="true"><b>F</b></span>
+              <h3>Field Note Editor</h3>
+              <p>Drafts the personal post and a distinct company adaptation.</p>
+              <small>CONTEXT · ledger + map</small>
+            </article>
+            <article class="crew-agent" data-crew-step="3" role="listitem">
+              <div class="agent-code"><span>AGENT 04</span><b>review_release_packet</b></div>
+              <span class="agent-orbit" aria-hidden="true"><b>G</b></span>
+              <h3>Claims Gate</h3>
+              <p>Checks every claim and stops at human review.</p>
+              <small>CONTEXT · complete draft</small>
+            </article>
+          </div>
+          <div class="human-gate" id="human-gate">
+            <span class="gate-mark" aria-hidden="true">◆</span>
+            <div><small>HUMAN GATE</small><b>Ahmad owns the publish decision.</b></div>
+            <span class="gate-state">LOCKED</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="crew-readout">
+        <div class="trace-panel">
+          <div class="readout-head"><p class="console-label">Execution timeline</p><span>Sequential process</span></div>
+          <ol class="trace-list">
+            <li data-trace-step="0"><span>01</span><b>Evidence ledger</b><em>Queued</em></li>
+            <li data-trace-step="1"><span>02</span><b>Systems map</b><em>Waiting for context</em></li>
+            <li data-trace-step="2"><span>03</span><b>Channel-separated drafts</b><em>Waiting for context</em></li>
+            <li data-trace-step="3"><span>04</span><b>Claim audit + release state</b><em>Waiting for context</em></li>
+          </ol>
+        </div>
+        <aside class="crew-anatomy">
+          <p class="console-label">What CrewAI is doing</p>
+          <dl>
+            <div><dt>Agent</dt><dd>A specialist with one role, goal, model, and tool boundary.</dd></div>
+            <div><dt>Task</dt><dd>The assignment, expected output, owner, and prior context.</dd></div>
+            <div><dt>Crew</dt><dd>The team plus the process that decides execution order.</dd></div>
+            <div><dt>Trace</dt><dd>The live evidence of what ran, when, and with which handoff.</dd></div>
+          </dl>
+        </aside>
+      </div>
+      <p class="crew-truth"><b>Truth boundary:</b> this page replays the architecture in the browser and never claims that animation is an AI run. The deployed AMP automation is the source for live execution status and traces. No social account is connected.</p>
+    </section>
+
     <section class="case-study" id="case-study">
       <div class="case-kicker"><span>Technical case study 04</span><b>Published by Ahmad Bukhari. Built and verified by AiXCEL Solutions.</b></div>
-      <div class="case-lead"><div><p class="index">03 / SCENARIO BRIEF</p><h2>A live evaluator that proves it can fail.</h2></div><p>Agent demos often validate only the happy path. This lab calls three allowlisted public systems, verifies seven contract and governance controls, repeats requests for idempotency, probes forbidden live mode, measures latency, and exposes evidence for every score.</p></div>
+      <div class="case-lead"><div><p class="index">04 / SCENARIO BRIEF</p><h2>A live evaluator that proves it can fail.</h2></div><p>Agent demos often validate only the happy path. This lab calls three allowlisted public systems, verifies seven contract and governance controls, repeats requests for idempotency, probes forbidden live mode, measures latency, and exposes evidence for every score.</p></div>
       <div class="proof-strip"><article><strong>03</strong><span>allowlisted deployments</span></article><article><strong>07</strong><span>weighted checks</span></article><article><strong>04</strong><span>baseline and fault scenarios</span></article><article><strong>00</strong><span>user-supplied outbound URLs</span></article></div>
       <div class="bench-story">
         <article><span>Control failure</span><h3>A permanent score of 100 proves nothing.</h3><p>The original interface only showed a passing baseline. Missing evidence, approval bypass, and latency breach can now be injected explicitly and each lowers the score.</p></article>
@@ -62,13 +154,13 @@
         <article><span>Acceptance boundary</span><h3>Public checks are not production certification.</h3><p>Privacy, provider quality, semantic task success, and real-data mutations require authenticated project-specific evaluation.</p></article>
       </div>
       <div class="architecture">
-        <div class="section-head"><p class="index">04 / ARCHITECTURE</p><h2>Probe, compare, score, and gate.</h2></div>
+        <div class="section-head"><p class="index">05 / ARCHITECTURE</p><h2>Probe, compare, score, and gate.</h2></div>
         <figure><img src="/assets/diagrams/system-context.svg" alt="Evaluation Lab system context"><figcaption><b>System context</b><span>The evaluator only reaches three fixed portfolio deployments.</span></figcaption></figure>
         <figure><img src="/assets/diagrams/agent-collaboration.svg" alt="Evaluation Lab check flow"><figcaption><b>Evaluation flow</b><span>Health, two replay runs, live boundary, weighted controls, and optional fault.</span></figcaption></figure>
         <figure><img src="/assets/diagrams/runtime-observability.svg" alt="Evaluation Lab runtime and observability"><figcaption><b>Release gate</b><span>CI, preview, live black-box checks, trace evidence, and artifact promotion.</span></figcaption></figure>
       </div>
       <div class="decision-block">
-        <div><p class="index">05 / DECISIONS</p><h2>Binary controls stay deterministic.</h2></div>
+        <div><p class="index">06 / DECISIONS</p><h2>Binary controls stay deterministic.</h2></div>
         <div class="decision-list">
           <article><b>Black-box HTTP over unit tests alone</b><p>The public URL, headers, latency, and boundary behavior must work outside the repository.</p></article>
           <article><b>Rules over LLM-as-judge</b><p>An approval bypass or missing evidence has one repeatable result. A model judge is reserved for calibrated qualitative output.</p></article>
@@ -79,9 +171,9 @@
         </div>
       </div>
       <div class="ops-grid">
-        <article><p class="index">06 / EVALUATION</p><h3>Seven weighted checks</h3><ul><li>Availability</li><li>Typed run contract</li><li>Resolvable evidence</li><li>Human decision gate</li><li>Live-provider boundary</li><li>Idempotent replay</li><li>Bounded trace and latency</li></ul></article>
-        <article><p class="index">07 / OBSERVABILITY</p><h3>Current monitoring path</h3><ul><li>X-Trace-ID and JSON logs</li><li>Per-probe latency and evidence</li><li>Vercel runtime logs</li><li>GitHub Actions regression tests</li><li>Score, grade, and fault label in the response</li></ul></article>
-        <article><p class="index">08 / NEXT GATE</p><h3>Production evaluation layer</h3><ul><li>Durable run history and schedules</li><li>OpenTelemetry trace correlation</li><li>Langfuse or LangSmith qualitative suites</li><li>Sentry application errors</li><li>Human-labelled golden sets and drift alerts</li></ul></article>
+        <article><p class="index">07 / EVALUATION</p><h3>Seven weighted checks</h3><ul><li>Availability</li><li>Typed run contract</li><li>Resolvable evidence</li><li>Human decision gate</li><li>Live-provider boundary</li><li>Idempotent replay</li><li>Bounded trace and latency</li></ul></article>
+        <article><p class="index">08 / OBSERVABILITY</p><h3>Current monitoring path</h3><ul><li>X-Trace-ID and JSON logs</li><li>Per-probe latency and evidence</li><li>Vercel runtime logs</li><li>GitHub Actions regression tests</li><li>Score, grade, and fault label in the response</li></ul></article>
+        <article><p class="index">09 / NEXT GATE</p><h3>Production evaluation layer</h3><ul><li>Durable run history and schedules</li><li>OpenTelemetry trace correlation</li><li>Langfuse or LangSmith qualitative suites</li><li>Sentry application errors</li><li>Human-labelled golden sets and drift alerts</li></ul></article>
       </div>
       <div class="trace-tags"><b>Trace tags</b><code>service</code><code>environment</code><code>trace_id</code><code>target_system</code><code>evaluation_scenario</code><code>check</code><code>status</code><code>latency_ms</code><code>score</code><code>fault_injected</code><code>error_type</code></div>
       <div class="case-actions"><a href="https://github.com/syedahmad0786/agentic-systems-evaluation-lab">Inspect repository ↗</a><a href="/docs">Open API contracts ↗</a></div>

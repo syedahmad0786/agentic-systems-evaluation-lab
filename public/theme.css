@@ -17,6 +17,12 @@ html[data-theme="dark"] {
   --theme-control-fg: #f4f6f1;
   --theme-control-line: #3a4245;
   --theme-focus: #c7f755;
+  --relay: #8aa2ff;
+  --relay-soft: #26345f;
+  --relay-shell: #11191f;
+  --relay-card: #161e23;
+  --gate: #d6a6d7;
+  --gate-soft: #2a1f2b;
 }
 
 .topline-tools,
@@ -93,6 +99,24 @@ html[data-theme="dark"] .ops-grid article {
 
 html[data-theme="dark"] .trace-tags code {
   background: #1d2426;
+}
+
+html[data-theme="dark"] .crew-run {
+  color: #0c0f11 !important;
+}
+
+html[data-theme="dark"] .crew-brief {
+  color: #f4f6f1;
+  background: #080a0b;
+}
+
+html[data-theme="dark"] .crew-brief .console-label,
+html[data-theme="dark"] .crew-brief dt {
+  color: #a7adaa;
+}
+
+html[data-theme="dark"] .amp-link {
+  color: #f4f6f1;
 }
 
 html[data-theme="dark"] .pass {
