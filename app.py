@@ -89,4 +89,11 @@ def theme_script():
     return FileResponse(PUBLIC / "theme.js", media_type="text/javascript")
 
 
-app.mount("/assets", StaticFiles(directory=PUBLIC / "assets"), name="assets")
+# Vercel serves public assets outside the Python function bundle. Disabling the
+# import-time directory check preserves that layout while local runs still mount
+# the real directory for visual QA.
+app.mount(
+    "/assets",
+    StaticFiles(directory=PUBLIC / "assets", check_dir=False),
+    name="assets",
+)
