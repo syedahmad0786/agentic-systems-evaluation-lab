@@ -90,3 +90,14 @@ def test_teaching_model_returns_bounded_artifacts_without_provider_credentials()
     assert "Final Answer:" in answer
     assert "## SUPPORTED" in answer
     assert "does not browse or add external claims" in answer
+
+
+def test_vercel_bundle_excludes_the_amp_only_runtime():
+    ignored = {
+        line.strip()
+        for line in (ROOT / ".vercelignore").read_text(encoding="utf-8").splitlines()
+        if line.strip() and not line.lstrip().startswith("#")
+    }
+
+    assert {"pyproject.toml", "uv.lock", "crewai", "src"} <= ignored
+    assert (ROOT / "requirements.txt").is_file()

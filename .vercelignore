@@ -2,6 +2,12 @@
 __pycache__
 .pytest_cache
 .git
+# CrewAI AMP uses these root files. The Vercel visual/API uses requirements.txt
+# and must not install the substantially larger orchestration runtime.
+pyproject.toml
+uv.lock
+crewai
+src
 docs
 tests
 postman
