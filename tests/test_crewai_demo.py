@@ -12,6 +12,7 @@ def test_live_page_labels_the_teaching_replay_and_human_gate():
     javascript = (ROOT / "public" / "app.js").read_text(encoding="utf-8")
 
     assert 'id="crewai-demo"' in html
+    assert 'rel="icon" href="/assets/aixcel-node-mark.svg"' in html
     assert "Visual replay" in html
     assert html.count("data-crew-step=") == 4
     assert "Ahmad owns the publish decision" in html
