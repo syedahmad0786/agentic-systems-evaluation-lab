@@ -6,6 +6,8 @@ Reproducible black-box checks for three deployed creator-economy agentic systems
 
 The live page now includes a CrewAI teaching trial for an agentic-systems content workflow. Its four-stage handoff rail is a labelled browser replay; the deployable JSON-first CrewAI source lives under [`crewai/agentic-systems-editorial-crew/`](crewai/agentic-systems-editorial-crew/).
 
+The linked AMP automation still validates the Git repository root with CrewAI's classic scaffold rules, so an equivalent compatibility package lives under [`src/agentic_systems_evaluation_lab/`](src/agentic_systems_evaluation_lab/). Both definitions preserve the same four roles, sequential handoffs, model choice, and final human-input gate; the JSON-first folder remains the clearer teaching source.
+
 ## Run
 
 ```bash

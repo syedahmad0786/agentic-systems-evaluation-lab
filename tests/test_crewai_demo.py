@@ -1,5 +1,6 @@
 import json
 from pathlib import Path
+import tomllib
 
 
 ROOT = Path(__file__).parents[1]
@@ -50,3 +51,15 @@ def test_agents_have_no_tools_and_cannot_delegate():
         assert agent["tools"] == []
         assert agent["settings"]["allow_delegation"] is False
         assert agent["llm"] == "openai/gpt-4o-mini"
+
+
+def test_repository_root_has_classic_amp_compatibility_scaffold():
+    project = tomllib.loads((ROOT / "pyproject.toml").read_text(encoding="utf-8"))
+    classic_root = ROOT / "src" / "agentic_systems_evaluation_lab"
+
+    assert project["tool"]["crewai"]["type"] == "crew"
+    assert project["project"]["scripts"]["run_crew"] == "agentic_systems_evaluation_lab.main:run"
+    assert (classic_root / "crew.py").is_file()
+    assert (classic_root / "main.py").is_file()
+    assert (classic_root / "config" / "agents.yaml").is_file()
+    assert (classic_root / "config" / "tasks.yaml").is_file()

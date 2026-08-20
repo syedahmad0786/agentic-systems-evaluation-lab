@@ -1,0 +1,47 @@
+build_evidence_ledger:
+  description: >
+    Read the supplied source packet for the topic '{topic}'. Extract only claims explicitly
+    supported by that packet. Label each item SUPPORTED, INFERENCE, or OPEN. Record the exact
+    source wording beside every SUPPORTED claim. Do not browse or invent citations.
+    Audience: {audience}. Source packet: {source_packet}
+  expected_output: >
+    A compact Markdown claim ledger with SUPPORTED, INFERENCE, and OPEN sections plus a
+    one-sentence evidence boundary.
+  agent: evidence_scout
+  markdown: true
+
+map_the_system:
+  description: >
+    Using the evidence ledger, explain the system as signal, specialist role, handoff, control
+    gate, action, and evidence receipt. Make agents, tasks, the crew, and the human gate concrete
+    for a non-technical operator. Preserve every uncertainty label.
+  expected_output: >
+    A six-part systems map and a plain-English explanation of why multiple narrow agents are used
+    instead of one generic assistant.
+  agent: systems_mapper
+  markdown: true
+
+draft_content_pack:
+  description: >
+    Turn the evidence ledger and systems map into a draft pack for {channel}. Write three hooks,
+    recommend one, then produce a 220-300 word personal LinkedIn Field Note, a distinct 100-150
+    word AiXCEL company adaptation, one visual brief, and one closing question. Never invent
+    outcomes, metrics, production acceptance, or autonomous action.
+  expected_output: >
+    A channel-separated Markdown content pack with three hooks, one recommendation, personal
+    draft, company adaptation, visual brief, and closing question.
+  agent: field_note_editor
+  markdown: true
+
+review_release_packet:
+  description: >
+    Audit the content pack line by line against the evidence ledger. List every factual claim and
+    its support status. Check that Ahmad's personal voice and AiXCEL's company voice remain
+    distinct. Return exactly READY_FOR_HUMAN_REVIEW or REVISE. Do not publish, schedule, send, or
+    imply approval. Governing policy: {human_review_policy}
+  expected_output: >
+    A release review with release state, claim audit, channel-separation check, required edits,
+    and a final HUMAN DECISION REQUIRED notice.
+  agent: claims_gate
+  markdown: true
+  human_input: true
