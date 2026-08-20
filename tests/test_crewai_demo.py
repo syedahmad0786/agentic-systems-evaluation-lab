@@ -16,6 +16,8 @@ def test_live_page_labels_the_teaching_replay_and_human_gate():
     assert html.count("data-crew-step=") == 4
     assert "Ahmad owns the publish decision" in html
     assert "never claims that animation is an AI run" in html
+    assert "deterministic teaching model" in html
+    assert "does not prove generative quality" in html
     assert "Crew stopped at the human gate" in javascript
 
 
@@ -63,3 +65,27 @@ def test_repository_root_has_classic_amp_compatibility_scaffold():
     assert (classic_root / "main.py").is_file()
     assert (classic_root / "config" / "agents.yaml").is_file()
     assert (classic_root / "config" / "tasks.yaml").is_file()
+
+
+def test_classic_amp_crew_uses_credential_free_teaching_model():
+    from agentic_systems_evaluation_lab.crew import AgenticSystemsEditorialCrew
+
+    deployed_crew = AgenticSystemsEditorialCrew().crew()
+
+    assert len(deployed_crew.agents) == 4
+    assert {agent.llm.model for agent in deployed_crew.agents} == {
+        "teaching/deterministic-v1"
+    }
+    assert deployed_crew.tasks[-1].human_input is True
+
+
+def test_teaching_model_returns_bounded_artifacts_without_provider_credentials():
+    from agentic_systems_evaluation_lab.teaching_llm import TeachingLLM
+
+    model = TeachingLLM()
+    answer = model.call("Create a compact Markdown claim ledger.")
+
+    assert answer.startswith("Thought:")
+    assert "Final Answer:" in answer
+    assert "## SUPPORTED" in answer
+    assert "does not browse or add external claims" in answer

@@ -9,6 +9,7 @@ from typing import Literal
 
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
 from evaluator import SYSTEMS, EvaluationScenario, evaluate_system
@@ -76,3 +77,16 @@ def styles():
 @app.get("/app.js", include_in_schema=False)
 def script():
     return FileResponse(PUBLIC / "app.js", media_type="text/javascript")
+
+
+@app.get("/theme.css", include_in_schema=False)
+def theme_styles():
+    return FileResponse(PUBLIC / "theme.css", media_type="text/css")
+
+
+@app.get("/theme.js", include_in_schema=False)
+def theme_script():
+    return FileResponse(PUBLIC / "theme.js", media_type="text/javascript")
+
+
+app.mount("/assets", StaticFiles(directory=PUBLIC / "assets"), name="assets")

@@ -2,6 +2,8 @@ from crewai import Agent, Crew, Process, Task
 from crewai.agents.agent_builder.base_agent import BaseAgent
 from crewai.project import CrewBase, agent, crew, task
 
+from agentic_systems_evaluation_lab.teaching_llm import TeachingLLM
+
 
 @CrewBase
 class AgenticSystemsEditorialCrew:
@@ -12,19 +14,35 @@ class AgenticSystemsEditorialCrew:
 
     @agent
     def evidence_scout(self) -> Agent:
-        return Agent(config=self.agents_config["evidence_scout"], verbose=True)  # type: ignore[index]
+        return Agent(
+            config=self.agents_config["evidence_scout"],  # type: ignore[index]
+            llm=TeachingLLM(),
+            verbose=True,
+        )
 
     @agent
     def systems_mapper(self) -> Agent:
-        return Agent(config=self.agents_config["systems_mapper"], verbose=True)  # type: ignore[index]
+        return Agent(
+            config=self.agents_config["systems_mapper"],  # type: ignore[index]
+            llm=TeachingLLM(),
+            verbose=True,
+        )
 
     @agent
     def field_note_editor(self) -> Agent:
-        return Agent(config=self.agents_config["field_note_editor"], verbose=True)  # type: ignore[index]
+        return Agent(
+            config=self.agents_config["field_note_editor"],  # type: ignore[index]
+            llm=TeachingLLM(),
+            verbose=True,
+        )
 
     @agent
     def claims_gate(self) -> Agent:
-        return Agent(config=self.agents_config["claims_gate"], verbose=True)  # type: ignore[index]
+        return Agent(
+            config=self.agents_config["claims_gate"],  # type: ignore[index]
+            llm=TeachingLLM(),
+            verbose=True,
+        )
 
     @task
     def build_evidence_ledger(self) -> Task:

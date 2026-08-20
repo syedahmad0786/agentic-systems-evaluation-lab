@@ -6,7 +6,7 @@ Reproducible black-box checks for three deployed creator-economy agentic systems
 
 The live page now includes a CrewAI teaching trial for an agentic-systems content workflow. Its four-stage handoff rail is a labelled browser replay; the deployable JSON-first CrewAI source lives under [`crewai/agentic-systems-editorial-crew/`](crewai/agentic-systems-editorial-crew/).
 
-The linked AMP automation still validates the Git repository root with CrewAI's classic scaffold rules, so an equivalent compatibility package lives under [`src/agentic_systems_evaluation_lab/`](src/agentic_systems_evaluation_lab/). Both definitions preserve the same four roles, sequential handoffs, model choice, and final human-input gate; the JSON-first folder remains the clearer teaching source.
+The linked AMP automation still validates the Git repository root with CrewAI's classic scaffold rules, so its deployable compatibility package lives under [`src/agentic_systems_evaluation_lab/`](src/agentic_systems_evaluation_lab/). It uses a deterministic, credential-free teaching model to prove the four roles, sequential handoffs, AMP traces, and final human-input gate. The JSON-first folder remains the clearer architecture source and shows the provider-backed model upgrade path.
 
 ## Run
 
@@ -22,7 +22,7 @@ Open `http://127.0.0.1:8000`. API source of truth: `/openapi.json`.
 
 This proves public replay behavior only. It does not claim real client data, production acceptance, provider quality, or authenticated mutation safety. Those require private integration tests and named human approval.
 
-The CrewAI trial drafts and reviews content but has no publishing tool. CrewAI AMP is the authority for live deployment and execution traces; the public handoff animation exists only to explain the architecture.
+The CrewAI trial drafts and reviews content but has no publishing tool. CrewAI AMP is the authority for live deployment and execution traces; the public handoff animation exists only to explain the architecture. The deployed deterministic model is a bounded teaching fixture, not evidence of generative-model quality. Connect and evaluate a provider-backed model before using arbitrary source packets or real editorial work.
 
 See [SYSTEM-GUIDE.md](SYSTEM-GUIDE.md) and [docs/architecture.mmd](docs/architecture.mmd).
 ## Technical proof package
