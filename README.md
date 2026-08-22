@@ -2,7 +2,7 @@
 
 Reproducible black-box checks for three deployed creator-economy agentic systems. The evaluator verifies API availability, typed run contracts, evidence references, human approval gates, disabled live-provider access, idempotent replay, trace depth, and latency.
 
-**Live:** https://agentic-systems-evaluation-lab.vercel.app
+**Live:** https://evaluation-lab.aixcelsolutions.com
 
 The live page now includes a CrewAI teaching trial for an agentic-systems content workflow. Its four-stage handoff rail is a labelled browser replay; the deployable JSON-first CrewAI source lives under [`crewai/agentic-systems-editorial-crew/`](crewai/agentic-systems-editorial-crew/).
 

@@ -24,7 +24,7 @@ class SystemContract:
 SYSTEMS: dict[SystemName, SystemContract] = {
     "campaign-command": SystemContract(
         "Creator Campaign Command",
-        "https://creator-campaign-command.vercel.app",
+        "https://campaign-command.aixcelsolutions.com",
         "/api/v1/campaigns/plan",
         {"scenario": "launch", "objective": "Qualified trial sign-ups", "budget": 18000, "idempotency_key": "agent-eval-command-001"},
         "awaiting_approval",
@@ -32,7 +32,7 @@ SYSTEMS: dict[SystemName, SystemContract] = {
     ),
     "language-mix": SystemContract(
         "LanguageMix Studio",
-        "https://language-mix-studio.vercel.app",
+        "https://language-mix.aixcelsolutions.com",
         "/api/v1/localizations/review",
         {"scenario": "wellness", "target_locale": "ar-AE", "tone": "conversational", "idempotency_key": "agent-eval-language-001"},
         "awaiting_language_review",
