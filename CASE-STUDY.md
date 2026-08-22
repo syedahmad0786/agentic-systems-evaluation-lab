@@ -4,7 +4,7 @@
 
 This is a live public black-box evaluator for three allowlisted portfolio systems. It does not claim to certify arbitrary external agents or replace authenticated production acceptance.
 
-Live system: https://agentic-systems-evaluation-lab.vercel.app
+Live system: https://evaluation-lab.aixcelsolutions.com
 
 Repository: https://github.com/syedahmad0786/agentic-systems-evaluation-lab
 
